@@ -510,6 +510,10 @@ public class JSONParser {
 				}
 			}while(token.type!=Yytoken.TYPE_EOF);
 		}
+		catch(TemporarySuspensionException e) {
+			// keep current status
+			throw e;
+		}
 		catch(IOException ie){
 			status = S_IN_ERROR;
 			throw ie;
