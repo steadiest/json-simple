@@ -674,8 +674,8 @@ int getPosition(){
         case 48: break;
         default: 
           if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
-            zzAtEOF = true;
-            return null;
+            // throw this exception to be able to resume someday
+            throw new TemporarySuspensionException();
           } 
           else {
             zzScanError(ZZ_NO_MATCH);
